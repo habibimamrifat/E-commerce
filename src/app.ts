@@ -13,7 +13,7 @@ app.use("/api/products",productRoute.router)
 app.use("/api/orders",productRoute.orderRouts)
 
 app.get('/', (req :Request , res:Response) => {
-  res.send('Hello World yooooooooooo!')
+  res.send({message:'Hello World i am working!'})
 })
 
 
