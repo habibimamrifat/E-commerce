@@ -12,7 +12,7 @@ const getAllProduct = async () => {
 }
 
 const findSingleProduct = async (id: string) => {
-  const result = await productModel.find({ _id: id })
+  const result = await productModel.find({ _id: id})
   return result
 }
 
@@ -91,12 +91,11 @@ const createOrderInTheDb = async (
   }
 }
 const searchAnOrderFromDb = async (email: string) => {
-    // console.log('taaaggggg', tag)
     const result = await orderModel.find({email:email})
     return result
   }
 const getAllOrderFromDb = async () => {
-    // console.log('taaaggggg', tag)
+   
     const result = await orderModel.find()
     return result
   }

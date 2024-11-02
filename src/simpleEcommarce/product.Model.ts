@@ -53,5 +53,22 @@ quantity: {
 }
 })
 
+
+// creatinng query middleWare
+productSchema.pre("find", function (next){
+  this.find({isDeleted : {$ne :true}})
+  next()
+ })
+ 
+ productSchema.pre("findOne",function(next){
+   this.findOne({isDeleted: {$ne :true}})
+   next()
+ })
+ 
+ productSchema.pre("aggregate",function(next){
+   this.pipeline().unshift({$match: {isDeleted : true}})
+   next()
+ })
+
 export const productModel = model<TProduct>('Product', productSchema)
 export const orderModel = model<TOrder>("Order", orderSchema)
